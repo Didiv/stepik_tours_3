@@ -3,7 +3,9 @@
 
     <h1 class="display-5 mt-4">Летим из <span data-test="from">{{ departure_name }}</span></h1>
     <p class="mb-4" >
-      Найдено <span data-test="tourcount">{{ tours|length }}</span> туров, от <span data-test="pricemin">{{min_price}}</span> до <span data-test="pricemax">{{ max_price }}</span> и от <span data-test="nightsmax">{{min_nights}}</span> ночей до <span data-test="nightsmax">{{ max_nights }}</span> ночей</p>
+      Найдено
+      <span data-test="tourcount">{{ tours|length }}</span>
+      туров, от <span data-test="pricemin">{{min_price}}</span> до <span data-test="pricemax">{{ max_price }}</span> и от <span data-test="nightsmax">{{min_nights}}</span> ночей до <span data-test="nightsmax">{{ max_nights }}</span> ночей</p>
 
       <div class="row mt-5" data-test="cards">
 
@@ -15,7 +17,7 @@
             <div class="card-body">
               <h5 class="card-title">{{ tour.title }}</h5>
               <p class="card-text">{{ tour.description|truncatewords:10 }}</p>
-              <a href="{% url 'tour' id=rour_id %}" class="btn btn-sm btn-primary" data-test="tourlink">Подробнее</a>
+              <a href="{% url 'tour' id=tour_id %}" class="btn btn-sm btn-primary" data-test="tourlink">Подробнее</a>
             </div>
           </div>
         </div>
