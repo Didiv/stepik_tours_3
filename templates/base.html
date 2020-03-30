@@ -17,9 +17,10 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           {% for departure_id, departure_name in departures.items %}
-          <li class="nav-item {% if departure_id == departure %}active{% else %}{% endif %}">
+          {% url 'departure' departure_id as endpoint %}
+          <li class="nav-item {% if endpoint == request.path %}active{% else %}{% endif %}">
             <a class="nav-link"
-              href="{% url 'departure' departure=departure_id %}">Из {{ departure_name }}</a>
+              href="{% endpoint %}">Из {{ departure_name }}</a>
           </li>
           {% endfor %}
         </ul>

@@ -8,7 +8,7 @@ import tours.data as data
 
 class MainView(View):
 
-    def genRandTourList(self, n: int, tours: dict) -> dict:
+    def gen_random_tours(self, n: int, tours: dict) -> dict:
         '''
         Return n random tours
         '''
@@ -25,7 +25,7 @@ class MainView(View):
 
         return render(
             request, 'index.html', context={
-                "tours": self.genRandTourList(6, data.tours),
+                "tours": self.gen_random_tours(6, data.tours),
             }
         )
 
@@ -37,8 +37,8 @@ class DepartureView(View):
             return HttpResponseNotFound(
                 f'Вылет из {departure} не поддерживается')
 
-        tours_filtered = {k: v for k, v in data.tours.items()
-                          if v['departure'] == departure}
+        tours_filtered = {tour_id: tour_data for tour_id, tour_data in data.tours.items()
+                          if tour_data['departure'] == departure}
         prices = sorted(tour['price'] for tour in tours_filtered.values())
         nights = sorted(tour['nights'] for tour in tours_filtered.values())
 
