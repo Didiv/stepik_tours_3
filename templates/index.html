@@ -22,7 +22,7 @@
             <div class="card-body">
               <h5 class="card-title">{{ tour.title }}</h5>
               <p class="card-text">{{ tour.description|truncatewords:10 }}</p>
-              <a href="{% url 'tour_url' id=tour_id %}" class="btn btn-sm btn-primary">Подробнее</a>
+              <a href="{% url 'tour' id=tour_id %}" class="btn btn-sm btn-primary">Подробнее</a>
             </div>
           </div>
         </div>

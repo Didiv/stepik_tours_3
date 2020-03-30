@@ -1,9 +1,6 @@
 from random import randint
-
 from django.http import HttpResponseNotFound
-
 from django.shortcuts import render
-
 from django.views.generic import View
 
 import tours.data as data
